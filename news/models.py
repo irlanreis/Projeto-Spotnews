@@ -34,5 +34,13 @@ class News(models.Model):
     created_at = models.DateField()
     image = models.ImageField(upload_to="img/", null=True, blank=True)
 
-    def __str__(self):
+    def add_category(self, category):
+        self.categories.add(category)
+        self.save()
+
+    def remove_category(self, category):
+        self.categories.remove(category)
+        self.save()
+
+    def __str__(self) -> str:
         return self.title

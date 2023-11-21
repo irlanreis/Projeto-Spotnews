@@ -25,6 +25,7 @@ urlpatterns = [
     path("", views.home, name="home-page"),
     path("news/<int:pk>", views.news_detail, name="news-details-page"),
     path("categories", views.categories_form, name="categories-form"),
+    path("news", views.create_news, name="news-form"),
 ]
 
 if settings.DEBUG:
