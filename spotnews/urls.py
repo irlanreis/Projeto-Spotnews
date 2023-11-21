@@ -23,6 +23,7 @@ from news import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home-page"),
+    path("news/<int:pk>", views.news_detail, name="news-details-page"),
 ]
 
 if settings.DEBUG:
