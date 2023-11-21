@@ -1,6 +1,5 @@
 from django.db import models
-
-from news.validators import validate_title
+from django.forms import ValidationError
 
 
 class Category(models.Model):
@@ -18,6 +17,13 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
+
+def validate_title(value):
+    letters = value.split()
+
+    if len(letters) == 1:
+        raise ValidationError('O titulo deve conter pelo menos 2 palavras.')
 
 
 class News(models.Model):
